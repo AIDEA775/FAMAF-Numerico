@@ -1,15 +1,18 @@
-x = 0;
-
-l = 0;
-i = 0;
-
-while i < 10
-  l += 0.1;
-  i++; 
+overflow = 1;
+var = 1;
+while isinf(var) == 0
+  overflow = var;
+  var *= 2;
 end
 
-printf("l = %f\n\n", l)
+overflow
 
-while x ~= l
-  x = x + 0.1
+
+underflow = 1;
+var = 1;
+while var ~= 0
+  underflow = var;
+  var /= 2;
 end
+
+underflow
