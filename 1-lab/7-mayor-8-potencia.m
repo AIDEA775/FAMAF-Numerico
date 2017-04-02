@@ -1,12 +1,4 @@
-function facf(n)
-  result = 1;
-  for i = 1 : n
-    result *= i;
-  end
-
-  disp(result)
-end
-
+% 7
 function mayor(x, y)
   if x == y
     disp("Son iguales")
@@ -15,10 +7,12 @@ function mayor(x, y)
   end
 end
 
+% 8a
 function potencia(x, n)
   x ^ n
 end
 
+% 8b
 function potencia5(x)
   for i = 0 : 5
     potencia(x, i)
