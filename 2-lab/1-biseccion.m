@@ -4,34 +4,49 @@
 # e escalar, tolerancia del error
 # m entero, numero maximo de iteraciones
 
-function rbisec(f, I, e, m)
+function [hx, hf] = rbisec(f, I, e, m)
   a = I(1);
   b = I(2);
 
-  u = f(a);
-  v = f(b);
-  l = (b - a); # l de longitud del intervalo
+  fa = f(a);
+  fb = f(b);
+  l = (b - a); # largo del intervalo
 
-  if sign(u) == sign(v) || b < a
+  hx = [];
+  hf = [];
+
+  if sign(fa) == sign(fb) || b < a
+    disp("Mal intervalo de entrada!")
     break;
   end
 
   for k = 1 : m
     l = l / 2; 
-    c = a + e; # punto medio
-    w = f(c); # valor del punto medio
+    c = a + l; # punto medio
+    fc = f(c); # valor del punto medio
 
-    if abs(w) < e
+    # guardar historico
+    hx(k) = c;
+    hf(k) = fc;
+
+    if abs(fc) < e
       break;
     end
 
-    if sign(w) == sign(v)
+    if sign(fc) == sign(fb)
       # lado izquierdo
       b = c;
-      v = w;
+      fb = fc;
     else
       # lado derecho
       a = c;
-      u = w;
+      fa = fc;
     end
+  end
 end
+
+
+# funciones
+fun_ej2a = @(x) tan(x) - 2 * x
+fun_ej2b = @(x) x ^ 2 - 3
+
