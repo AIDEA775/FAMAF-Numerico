@@ -1,5 +1,11 @@
 global a = 27;
 
+# Metodo de Newton
+# f funcion, dado x retorna [f(x),f'(x)]
+# x0 escalar, primer punto
+# e escalar, tolerancia del error
+# m entero, numero maximo de iteraciones
+
 function [hx, hf] = rnewton(f, x0, e, m)
   hx = [];
   hf = [];
@@ -9,7 +15,7 @@ function [hx, hf] = rnewton(f, x0, e, m)
   [hf(1), fpx] = f(x0);
 
   # le pegaste de una
-  if abs(fx) < e
+  if abs(hf(1)) < e
     disp("Enhorabuena!")
     break;
   end
@@ -29,5 +35,5 @@ function [hx, hf] = rnewton(f, x0, e, m)
 endfunction
 
 
-fun = @(x) [x ^ 3, 3 * x ^ 2]
-fun_ej4 = @(x) [x ^ 3 - a, 3 * x ^ 2]
+fun = @(x) deal(x ^ 3 + 8, 3 * x ^ 2)
+fun_ej4 = @(x) deal(x ^ 3 - a, 3 * x ^ 2)
