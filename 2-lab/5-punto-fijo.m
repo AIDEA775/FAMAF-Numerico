@@ -15,4 +15,4 @@ function [hx] = ripf(fun, x0, e, m)
 endfunction
 
 
-fun_ej4 = @(x) 2 ^ (x - 1)
+fun_ej6 = @(x) 2 ^ (x - 1)
