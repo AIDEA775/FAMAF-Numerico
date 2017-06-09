@@ -9,7 +9,8 @@ function a_ej()
   p = polyfit(x, y, 1);
   y_ajust = polyval(p, x);
 
-  plot(x, y, ';Puntos Originales;.', x, y_ajust, ';Ajuste Lineal;r')
+  plot(x, y, ';Puntos Originales;.',
+       x, y_ajust, ';Ajuste Lineal;r');
 endfunction
 
 function b_ej()
@@ -20,5 +21,7 @@ function b_ej()
 
   p = polyfit(x, y_disp, 1);
   y_ajust = polyval(p, x);
-  plot(x, y, ';Funcion Original;g-', x, y_disp, ';Dispercion Normal;.', x, y_ajust, ';Ajuste Lineal;r');
+  plot(x, y, ';Funcion Original;g-',
+       x, y_disp, ';Dispercion Normal;.',
+       x, y_ajust, ';Ajuste Lineal;r');
 endfunction
