@@ -1,6 +1,6 @@
 run '1-soltr.m'
 
-# A matriz cuadrada superior
+# A matriz
 # b vector
 function x = sollu(A, b)
   [L, U, P] = lu(A);
